@@ -5,6 +5,7 @@ module.exports = {
   entry: path.resolve(__dirname, './index.js'),
   output: {
     path: path.resolve(__dirname, './build'),
+    publicPath: '/assets/',
     filename: 'bundle.js'
   },
   module: {
@@ -18,7 +19,8 @@ module.exports = {
           presets: [
             'react',
             'es2015',
-            'stage-0'
+            'stage-0',
+            'react-hmre'
           ]
         }
       },
