@@ -1,6 +1,7 @@
 var path = require('path');
 
 module.exports = {
+  devtool: 'inline-source-map',
   entry: path.resolve(__dirname, './index.js'),
   output: {
     path: path.resolve(__dirname, './build'),
@@ -13,6 +14,7 @@ module.exports = {
         loader: 'babel-loader',
         exclude: path.resolve(__dirname, './node_modules'),
         query: {
+          plugins: ['transform-runtime'],
           presets: [
             'react',
             'es2015',
