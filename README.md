@@ -8,7 +8,7 @@ information.
 
 1. npm install
 2. npm start
-3. visit localhost:8888
+3. visit localhost:8080
 
 ## License
 
