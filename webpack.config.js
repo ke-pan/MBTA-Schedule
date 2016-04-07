@@ -26,7 +26,10 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        exclude: path.resolve(__dirname, './node_modules'),
+        include: [
+          path.resolve(__dirname, './src'), 
+          path.resolve(__dirname, './node_modules/antd/lib')
+        ],
         loader: "style-loader!css-loader"
       }
     ]
