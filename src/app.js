@@ -1,10 +1,15 @@
 import React from 'react';
 import '../node_modules/antd/lib/index.css';
 import RailwayForm from './components/RailwayForm';
+import List from './components/list';
 
 const App = () => {
   return (
-    <RailwayForm />
+    <div>
+      <RailwayForm />
+      <List />
+    </div>
+    
   );
 };
 
