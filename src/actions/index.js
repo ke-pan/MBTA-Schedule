@@ -1,4 +1,4 @@
-import fetch from 'isomorphic-fetch';
+//import fetch from 'isomorphic-fetch';
 
 export const REQUEST = 'REQUEST';
 export const FAILURE = 'FAILURE';
