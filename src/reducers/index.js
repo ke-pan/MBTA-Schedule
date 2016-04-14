@@ -9,19 +9,19 @@ export default function (state = {
 }, action) {
   switch (action.type) {
     case REQUEST:
-      return Object.assign(state, {
+      return Object.assign({}, state, {
         isFetching: true,
         from: action.from,
         to: action.to,
         day: action.day
       });
     case SUCCESS:
-      return Object.assign(state, {
+      return Object.assign({}, state, {
         isFetching: false,
         data: action.data
       });
     case FAILURE:
-      return Object.assign(state, {
+      return Object.assign({}, state, {
         isFetching: false,
       });
     default:
