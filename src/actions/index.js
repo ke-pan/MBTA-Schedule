@@ -1,49 +1,48 @@
-//import fetch from 'isomorphic-fetch';
+import { fetchRoutes } from '../api';
 
-export const REQUEST = 'REQUEST';
-export const FAILURE = 'FAILURE';
-export const SUCCESS = 'SUCCESS';
+export const SEL_FROM = 'SEL_FROM';
+export const SEL_TO = 'SEL_TO';
+export const SUCCESS_FROM = 'SUCCESS_FROM';
+export const SUCCESS_TO = 'SUCCESS_TO';
 
-function receive(data) {
+function selFrom(from) {
   return {
-    type: SUCCESS,
-    data
+    type: SEL_FROM,
+    from
   }
 }
 
-function request(from, to, day) {
+function selTo(to) {
   return {
-    type: REQUEST,
-    from,
-    to,
-    day,
+    type: SEL_TO,
+    to
   }
 }
 
-function failure() {
+function receiveFrom(data) {
   return {
-    type: FAILURE
+    type: SUCCESS_FROM,
+    routes: data['route']
   }
 }
 
-function fetchFare(from, to, day) {
-  return new Promise(function(resolve, reject) {
-    resolve(
-      [{
-        tripId: '01SFO10SUN',
-        fromStopId: 'LAFY',
-        fromDepartureTime: '08:00:00',
-        toStopId: 'ROCK',
-        toArrivalTime: '08:11:00'
-      }]
-    )
-  })
+function receiveTo(data) {
+  return {
+    type: SUCCESS_TO,
+    routes: data['route']
+  }
 }
 
-export function loadFare(from, to, day) {
+export function loadFrom(from) {
   return (dispatch) => {
-    dispatch(request(from, to, day));
-    return fetchFare(from, to, day)
-      .then(data => dispatch(receive(data)))
+    dispatch(selFrom(from));
+    return fetchRoutes(from).then(data => dispatch(receiveFrom(data)))
+  }
+}
+
+export function loadTo(to) {
+  return (dispatch) => {
+    dispatch(selTo(to));
+    return fetchRoutes(to).then(data => dispatch(receiveTo(data)))
   }
 }

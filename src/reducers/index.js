@@ -1,28 +1,33 @@
-import { REQUEST, SUCCESS, FAILURE } from '../actions';
+import { SEL_FROM, SEL_TO, SUCCESS_FROM, SUCCESS_TO } from '../actions';
 
 export default function (state = {
   isFetching: false,
   from: '',
   to: '',
   day: '',
-  data: []
+  fromRoutes: [],
+  toRoutes:[],
 }, action) {
   switch (action.type) {
-    case REQUEST:
+    case SEL_FROM:
       return Object.assign({}, state, {
         isFetching: true,
-        from: action.from,
-        to: action.to,
-        day: action.day
+        from: action.from
       });
-    case SUCCESS:
+    case SEL_TO:
+      return Object.assign({}, state, {
+        isFetching: true,
+        to: action.to
+      });
+    case SUCCESS_FROM:
       return Object.assign({}, state, {
         isFetching: false,
-        data: action.data
+        fromRoutes: action.routes
       });
-    case FAILURE:
+    case SUCCESS_TO:
       return Object.assign({}, state, {
         isFetching: false,
+        toRoutes: action.routes,
       });
     default:
       return state;
