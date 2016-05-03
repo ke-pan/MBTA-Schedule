@@ -19,7 +19,7 @@ function selTo(to) {
   }
 }
 
-function receiveFrom(data) {\
+function receiveFrom(data) {
   return {
     type: SUCCESS_FROM,
     routes: data.entities.route
