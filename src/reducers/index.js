@@ -5,8 +5,8 @@ export default function (state = {
   from: '',
   to: '',
   day: '',
-  fromRoutes: [],
-  toRoutes:[],
+  fromRoutes: null,
+  toRoutes: null,
 }, action) {
   switch (action.type) {
     case SEL_FROM:

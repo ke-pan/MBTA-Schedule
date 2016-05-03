@@ -19,17 +19,17 @@ function selTo(to) {
   }
 }
 
-function receiveFrom(data) {
+function receiveFrom(data) {\
   return {
     type: SUCCESS_FROM,
-    routes: data['route']
+    routes: data.entities.route
   }
 }
 
 function receiveTo(data) {
   return {
     type: SUCCESS_TO,
-    routes: data['route']
+    routes: data.entities.route
   }
 }
 
@@ -45,4 +45,8 @@ export function loadTo(to) {
     dispatch(selTo(to));
     return fetchRoutes(to).then(data => dispatch(receiveTo(data)))
   }
+}
+
+export function findSchedule(from, to, date) {
+  return 'TODO'
 }

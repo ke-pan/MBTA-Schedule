@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Form, Select, Button, DatePicker } from 'antd';
 const Option = Select.Option;
 import enUS from '../../node_modules/antd/lib/date-picker/locale/en_US';
-import { loadFare } from '../actions';
+import { loadFrom, loadTo, findSchedule } from '../actions';
 
 const FormItem = Form.Item;
 
@@ -11,8 +11,8 @@ class RailwayForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      from: 'LAFY',
-      to: '12TH',
+      from: '10000',
+      to: '10003',
       date: new Date()
     }
     this.handleFromChange = this.handleFromChange.bind(this);
@@ -23,10 +23,12 @@ class RailwayForm extends React.Component {
 
   handleFromChange(from) {
     this.setState({from});
+    this.props.loadFrom(from);
   }
 
   handleToChange(to) {
     this.setState({to});
+    this.props.loadTo(to);
   }
 
   handleDateChange(date) {
@@ -35,7 +37,7 @@ class RailwayForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.handleSubmit(this.state.from, this.state.to, this.state.date);
+    this.props.findSchedule(this.state.from, this.state.to, this.state.date);
   }
 
   render() {
@@ -43,16 +45,16 @@ class RailwayForm extends React.Component {
       <Form inline>
         <FormItem label="From: ">
           <Select value={this.state.from} style={{ width: 120 }} onChange={this.handleFromChange}>
-            <Option value="LAFY">LAFY</Option>
-            <Option value="19TH">19TH</Option>
-            <Option value="12TH">12TH</Option>
+            <Option value="10000">10000</Option>
+            <Option value="10003">10003</Option>
+            <Option value="10005">10005</Option>
           </Select>
         </FormItem>
         <FormItem label="To: ">
           <Select value={this.state.to} style={{ width: 120 }} onChange={this.handleToChange}>
-            <Option value="LAFY">LAFY</Option>
-            <Option value="19TH">19TH</Option>
-            <Option value="12TH">12TH</Option>
+            <Option value="10000">10000</Option>
+            <Option value="10003">10003</Option>
+            <Option value="10005">10005</Option>
           </Select>
         </FormItem>
         <FormItem label="Date: ">
@@ -65,9 +67,14 @@ class RailwayForm extends React.Component {
 }
 
 RailwayForm.propTypes = {
-  handleSubmit: React.PropTypes.func.isRequired
+  loadFrom: React.PropTypes.func.isRequired,
+  loadTo: React.PropTypes.func.isRequired,
+  findSchedule: React.PropTypes.func.isRequired
 }
 
 
-
-export default connect(null, {handleSubmit: loadFare})(RailwayForm);
+export default connect(null, {
+  loadFrom,
+  loadTo,
+  findSchedule
+})(RailwayForm);
