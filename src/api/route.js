@@ -1,7 +1,6 @@
 import fetch from 'isomorphic-fetch';
 import { Schema, arrayOf, normalize } from 'normalizr'
-
-const API_KEY = 'wX9NwuHnZU2ToO7GmGR9uw'
+import { API_KEY } from '../constant'
 
 const route = new Schema('route', {idAttribute: 'route_id'});
 const mode = new Schema('mode', {idAttribute: 'route_type'});

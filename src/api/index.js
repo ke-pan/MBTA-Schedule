@@ -1,4 +1,4 @@
 import { fetchRoutes } from './route';
-import { fetchTrip } from './trip'
+import { fetchTrips } from './trip';
 
-export { fetchRoutes, fetchTrip }
+export { fetchRoutes, fetchTrips }

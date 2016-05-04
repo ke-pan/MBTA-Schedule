@@ -13,10 +13,10 @@ class List extends React.Component {
     // }
   }
   render() {
-    const {from, to, day} = this.props;
+    const {from, to, date} = this.props;
     return (
       <div>
-        <h1>{"From " + from + " To " + to + ' At ' + day}</h1>
+        <h1>{"From " + from + " To " + to + ' At ' + date}</h1>
         <ul>
           { this.listItem() }
         </ul>
@@ -36,7 +36,7 @@ function mapStateToProps(state) {
   return {
     from: state.from,
     to: state.to,
-    day: state.day,
+    date: state.date,
     data: state.data
   };
 }

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Form, Select, Button, DatePicker } from 'antd';
 const Option = Select.Option;
 import enUS from '../../node_modules/antd/lib/date-picker/locale/en_US';
-import { loadFrom, loadTo, findSchedule } from '../actions';
+import { loadFrom, loadTo, selDate, findSchedule } from '../actions';
 
 const FormItem = Form.Item;
 
@@ -33,11 +33,12 @@ class RailwayForm extends React.Component {
 
   handleDateChange(date) {
     this.setState({date});
+    this.props.selDate(date);
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.findSchedule(this.state.from, this.state.to, this.state.date);
+    this.props.findSchedule();
   }
 
   render() {
@@ -69,6 +70,7 @@ class RailwayForm extends React.Component {
 RailwayForm.propTypes = {
   loadFrom: React.PropTypes.func.isRequired,
   loadTo: React.PropTypes.func.isRequired,
+  selDate: React.PropTypes.func.isRequired,
   findSchedule: React.PropTypes.func.isRequired
 }
 
@@ -76,5 +78,6 @@ RailwayForm.propTypes = {
 export default connect(null, {
   loadFrom,
   loadTo,
+  selDate,
   findSchedule
 })(RailwayForm);
