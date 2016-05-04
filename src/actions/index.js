@@ -1,5 +1,14 @@
-import { fetchRoutes, fetchTrips } from '../api';
-import { SEL_FROM, SEL_TO, SUCCESS_FROM, SUCCESS_TO, SEL_DATE, MATCH_ROUTES, SUCCESS_TRIPS } from '../constant';
+import { fetchRoutes, fetchSchedule } from '../api';
+import { 
+  SEL_FROM, 
+  SEL_TO, 
+  SUCCESS_FROM, 
+  SUCCESS_TO, 
+  SEL_DATE, 
+  MATCH_ROUTES, 
+  SUCCESS_SCHEDULE, 
+  FIND_TRIPS 
+} from '../constant';
 
 function selFrom(from) {
   return {
@@ -35,11 +44,17 @@ function matchRoutes() {
   }
 }
 
-function receiveTrips(trips) {
+function receiveSchedule(schedule) {
   return {
-    type: SUCCESS_TRIPS,
-    trips
-  }
+    type: SUCCESS_SCHEDULE,
+    schedule
+  };
+}
+
+function findTrips() {
+  return {
+    type: FIND_TRIPS,
+  };
 }
 
 export function selDate(date) {
@@ -68,6 +83,8 @@ export function findSchedule() {
     dispatch(matchRoutes());
     const { matchRouteIds, date } = getState();
     const datetime = Math.floor( (date || Date.now()) / 1000)
-    return fetchTrips(matchRouteIds, datetime).then(data => dispatch(receiveTrips(data)));
+    return fetchSchedule(matchRouteIds, datetime)
+      .then(data => dispatch(receiveSchedule(data)))
+      .then(dispatch(findTrips()));
   }
 }

@@ -5,4 +5,5 @@ export const SEL_DATE = 'SEL_DATE';
 export const SUCCESS_FROM = 'SUCCESS_FROM';
 export const SUCCESS_TO = 'SUCCESS_TO';
 export const MATCH_ROUTES = 'MATCH_ROUTES';
-export const SUCCESS_TRIPS = 'SUCCESS_TRIPS';
+export const SUCCESS_SCHEDULE = 'SUCCESS_SCHEDULE';
+export const FIND_TRIPS = 'FIND_TRIPS';

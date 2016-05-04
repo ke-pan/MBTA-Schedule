@@ -1,4 +1,13 @@
-import { SEL_FROM, SEL_TO, SUCCESS_FROM, SUCCESS_TO, SEL_DATE, MATCH_ROUTES, SUCCESS_TRIPS } from '../constant';
+import {
+  SEL_FROM,
+  SEL_TO,
+  SUCCESS_FROM,
+  SUCCESS_TO,
+  SEL_DATE,
+  MATCH_ROUTES,
+  SUCCESS_SCHEDULE,
+  FIND_TRIPS
+} from '../constant';
 
 export default function (state = {
   isFetching: false,
@@ -8,6 +17,8 @@ export default function (state = {
   fromRoutes: null,
   toRoutes: null,
   matchRouteIds: [],
+  schedule: null,
+  trips: [],
 }, action) {
   switch (action.type) {
     case SEL_FROM:
@@ -47,11 +58,19 @@ export default function (state = {
         isFetching: true,
         matchRouteIds
       });
-    case SUCCESS_TRIPS:
+    case SUCCESS_SCHEDULE:
       return Object.assign({}, state, {
         isFetching: false,
-        trips: action.trips
+        schedule: action.schedule
       });
+    case FIND_TRIPS:
+      let trips = [];
+      for (let trip in state.schedule.entities.trip) {
+        
+      }
+      return Object.assign({}, state, {
+
+      })
     default:
       return state;
   }
