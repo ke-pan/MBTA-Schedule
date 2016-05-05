@@ -5,6 +5,12 @@ const Option = Select.Option;
 import enUS from '../../node_modules/antd/lib/date-picker/locale/en_US';
 import { loadFrom, loadTo, selDate, findSchedule } from '../actions';
 
+const customLocale = {
+  timezoneOffset: 0 * 60,
+  firstDayOfWeek: 0,
+  minimalDaysInFirstWeek: 1,
+};
+
 const FormItem = Form.Item;
 
 class RailwayForm extends React.Component {
@@ -59,7 +65,7 @@ class RailwayForm extends React.Component {
           </Select>
         </FormItem>
         <FormItem label="Date: ">
-          <DatePicker locale={enUS} value={this.state.date} onChange={this.handleDateChange}/>
+          <DatePicker locale={{...enUS, ...customLocale}} value={this.state.date} onChange={this.handleDateChange}/>
         </FormItem>
         <Button type="primary" htmlType="submit" onClick={this.handleSubmit}>FIND TRAINS</Button>
       </Form>
