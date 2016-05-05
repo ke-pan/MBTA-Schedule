@@ -65,12 +65,23 @@ export default function (state = {
       });
     case FIND_TRIPS:
       let trips = [];
-      for (let trip in state.schedule.entities.trip) {
-        
+      for (let trip in state.schedule.entities.trips) {
+        let schedule = {tripName: trip.trip_name, from: null, to: null};
+        trip.stop.forEach((stop) => {
+          if (stop.stop_id == state.from) {
+            schedule.from = stop;
+          }
+          if (stop.stop_id == state.to) {
+            schedule.from = stop;
+          }
+        });
+        if (schedule.from && schedule.to && schedule.to.stop_sequence > schedule.from.stop_sequence) {
+          trips.push(schedule);
+        }
       }
       return Object.assign({}, state, {
-
-      })
+        trips
+      });
     default:
       return state;
   }

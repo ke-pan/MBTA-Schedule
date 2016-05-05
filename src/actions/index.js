@@ -85,6 +85,6 @@ export function findSchedule() {
     const datetime = Math.floor( (date || Date.now()) / 1000)
     return fetchSchedule(matchRouteIds, datetime)
       .then(data => dispatch(receiveSchedule(data)))
-      .then(dispatch(findTrips()));
+      .then(() => dispatch(findTrips()));
   }
 }

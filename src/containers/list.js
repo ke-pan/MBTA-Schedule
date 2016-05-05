@@ -4,13 +4,13 @@ import ListItem from '../components/listItem';
 
 class List extends React.Component {
   listItem() {
-    // if(this.props.data.length === 0) {
+    if(this.props.trips.length === 0) {
       return 'No Trains'
-    // } else {
-    //   return this.props.data.map( (info, i) => {
-    //     return <ListItem key={i} data={info}/>
-    //   })
-    // }
+    } else {
+      return this.props.trips.map( (trip, i) => {
+        return <ListItem key={i} data={info}/>
+      })
+    }
   }
   render() {
     const {from, to, date} = this.props;
@@ -28,8 +28,8 @@ class List extends React.Component {
 List.propTypes = {
   from: PropTypes.string.isRequired,
   to: PropTypes.string.isRequired,
-  //day: PropTypes.object.isRequired,
-  // data: PropTypes.array.isRequired
+  date: PropTypes.object.isRequired,
+  trips: PropTypes.array.isRequired
 };
 
 function mapStateToProps(state) {
@@ -37,7 +37,7 @@ function mapStateToProps(state) {
     from: state.from,
     to: state.to,
     date: state.date,
-    data: state.data
+    trips: state.trips
   };
 }
 

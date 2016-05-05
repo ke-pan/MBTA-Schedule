@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 
 export default class ListItem extends Component {
   render() {
-    const {fromStopId, toStopId, tripId, fromDepartureTime, toArrivalTime} = this.props.data;
+    const {tripName, from, to} = this.props;
     return(
-      <li>{tripId + ': ' + fromStopId + ' at ' + fromDepartureTime + ' ~ ' +
-      toStopId + ' at ' + toArrivalTime}</li>
+      <li>{tripName + ': ' + from.stop_name + ' at ' + from.sch_dep_dt + ' ~ ' +
+      to.stop_name + ' at ' + from.sch_dep_dt}</li>
     );
   }
 }
