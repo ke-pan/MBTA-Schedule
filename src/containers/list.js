@@ -8,7 +8,7 @@ class List extends React.Component {
       return 'No Trains'
     } else {
       return this.props.trips.map( (trip, i) => {
-        return <ListItem key={i} data={info}/>
+        return <ListItem key={i} data={trip}/>
       })
     }
   }

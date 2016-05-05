@@ -65,16 +65,19 @@ export default function (state = {
       });
     case FIND_TRIPS:
       let trips = [];
-      for (let trip in state.schedule.entities.trips) {
+      for (let tripId in state.schedule.entities.trips) {
+        let trip = state.schedule.entities.trips[tripId];
         let schedule = {tripName: trip.trip_name, from: null, to: null};
         trip.stop.forEach((stop) => {
+          console.log(stop.stop_id);
           if (stop.stop_id == state.from) {
             schedule.from = stop;
           }
           if (stop.stop_id == state.to) {
-            schedule.from = stop;
+            schedule.to = stop;
           }
         });
+        console.log(schedule)
         if (schedule.from && schedule.to && schedule.to.stop_sequence > schedule.from.stop_sequence) {
           trips.push(schedule);
         }
