@@ -2,11 +2,14 @@ var path = require('path');
 
 module.exports = {
   devtool: 'inline-source-map',
-  entry: path.resolve(__dirname, './index.js'),
+  entry: {
+    app: path.resolve(__dirname, './index.js'),
+    sw: path.resolve(__dirname, './sw.js')
+  },
   output: {
     path: path.resolve(__dirname, './build'),
     publicPath: '/assets/',
-    filename: 'bundle.js'
+    filename: '[name].js'
   },
   module: {
     loaders: [

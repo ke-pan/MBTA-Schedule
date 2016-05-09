@@ -5,9 +5,14 @@ import { Provider } from 'react-redux';
 import configureStore from './src/store/configureStore';
 import App from './src/containers/app';
 
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('sw.js');
+if (navigator.serviceWorker) {
+  navigator.serviceWorker.register('sw.js').then(function(reg) {
+    if (!navigator.serviceWorker.controller) {
+      return;
+    }
+  });
 }
+
 
 const store = configureStore();
 
