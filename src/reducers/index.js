@@ -13,7 +13,6 @@ export default function (state = {
   isFetching: false,
   from: '',
   to: '',
-  date: null,
   fromRoutes: null,
   toRoutes: null,
   matchRouteIds: [],
@@ -31,10 +30,6 @@ export default function (state = {
         isFetching: true,
         to: action.to
       });
-    case SEL_DATE:
-      return Object.assign({}, state, {
-        date: action.date
-      })
     case SUCCESS_FROM:
       return Object.assign({}, state, {
         isFetching: false,

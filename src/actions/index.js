@@ -4,7 +4,6 @@ import {
   SEL_TO, 
   SUCCESS_FROM, 
   SUCCESS_TO, 
-  SEL_DATE, 
   MATCH_ROUTES, 
   SUCCESS_SCHEDULE, 
   FIND_TRIPS 
@@ -55,13 +54,6 @@ function findTrips() {
   return {
     type: FIND_TRIPS,
   };
-}
-
-export function selDate(date) {
-  return {
-    type: SEL_DATE,
-    date
-  }
 }
 
 export function loadFrom(from) {

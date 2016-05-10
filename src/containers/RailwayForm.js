@@ -2,14 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Form, Select, Button, DatePicker } from 'antd';
 const Option = Select.Option;
-import enUS from '../../node_modules/antd/lib/date-picker/locale/en_US';
-import { loadFrom, loadTo, selDate, findSchedule } from '../actions';
-
-const customLocale = {
-  timezoneOffset: 0 * 60,
-  firstDayOfWeek: 0,
-  minimalDaysInFirstWeek: 1,
-};
+import { loadFrom, loadTo, findSchedule } from '../actions';
 
 const FormItem = Form.Item;
 
@@ -23,7 +16,6 @@ class RailwayForm extends React.Component {
     }
     this.handleFromChange = this.handleFromChange.bind(this);
     this.handleToChange = this.handleToChange.bind(this);
-    this.handleDateChange = this.handleDateChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -35,11 +27,6 @@ class RailwayForm extends React.Component {
   handleToChange(to) {
     this.setState({to});
     this.props.loadTo(to);
-  }
-
-  handleDateChange(date) {
-    this.setState({date});
-    this.props.selDate(date);
   }
 
   handleSubmit(e) {
@@ -64,9 +51,6 @@ class RailwayForm extends React.Component {
             <Option value="10005">10005</Option>
           </Select>
         </FormItem>
-        <FormItem label="Date: ">
-          <DatePicker locale={{...enUS, ...customLocale}} value={this.state.date} onChange={this.handleDateChange}/>
-        </FormItem>
         <Button type="primary" htmlType="submit" onClick={this.handleSubmit}>FIND TRAINS</Button>
       </Form>
     );
@@ -76,7 +60,6 @@ class RailwayForm extends React.Component {
 RailwayForm.propTypes = {
   loadFrom: React.PropTypes.func.isRequired,
   loadTo: React.PropTypes.func.isRequired,
-  selDate: React.PropTypes.func.isRequired,
   findSchedule: React.PropTypes.func.isRequired
 }
 
@@ -84,6 +67,5 @@ RailwayForm.propTypes = {
 export default connect(null, {
   loadFrom,
   loadTo,
-  selDate,
   findSchedule
 })(RailwayForm);
