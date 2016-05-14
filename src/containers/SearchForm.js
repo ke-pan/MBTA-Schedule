@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Form, Select, Button, DatePicker } from 'antd';
 const Option = Select.Option;
 import { loadFrom, loadTo, findSchedule } from '../actions';
+import StopData from '../data/stops.json';
 
 const FormItem = Form.Item;
 
@@ -14,23 +15,16 @@ const formStyle = {
 class RailwayForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      from: '10000',
-      to: '10003',
-      date: new Date()
-    }
     this.handleFromChange = this.handleFromChange.bind(this);
     this.handleToChange = this.handleToChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleFromChange(from) {
-    this.setState({from});
     this.props.loadFrom(from);
   }
 
   handleToChange(to) {
-    this.setState({to});
     this.props.loadTo(to);
   }
 
@@ -42,18 +36,24 @@ class RailwayForm extends React.Component {
   render() {
     return(
       <Form inline style={formStyle}>
-        <FormItem label="From: ">
-          <Select value={this.state.from} style={{ width: 120 }} onChange={this.handleFromChange}>
-            <Option value="10000">10000</Option>
-            <Option value="10003">10003</Option>
-            <Option value="10005">10005</Option>
+        <FormItem>
+          <Select showSearch
+                  placeholder="From"
+                  style={{ width: 240 }}
+                  onChange={this.handleFromChange} >
+            {StopData.stops.map((stop, idx) => {
+              return <Option key={idx} value={stop.stopId}>{stop.stopName}</Option>
+            })}
           </Select>
         </FormItem>
-        <FormItem label="To: ">
-          <Select value={this.state.to} style={{ width: 120 }} onChange={this.handleToChange}>
-            <Option value="10000">10000</Option>
-            <Option value="10003">10003</Option>
-            <Option value="10005">10005</Option>
+        <FormItem >
+          <Select showSearch
+                  placeholder="To"
+                  style={{ width: 240 }}
+                  onChange={this.handleToChange} >
+            {StopData.stops.map((stop, idx) => {
+              return <Option key={idx} value={stop.stopId}>{stop.stopName}</Option>
+            })}
           </Select>
         </FormItem>
         <Button type="primary" htmlType="submit" onClick={this.handleSubmit}>SEARCH</Button>

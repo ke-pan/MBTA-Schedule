@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../node_modules/antd/lib/index.css';
-import RailwayForm from './RailwayForm';
+import SearchForm from './SearchForm';
 import List from './list';
 import Header from '../components/header';
 
@@ -14,7 +14,7 @@ const App = () => {
     <div>
       <Header />
       <div style={style}>
-        <RailwayForm />
+        <SearchForm />
         <List />
       </div>
 
