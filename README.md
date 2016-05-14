@@ -6,6 +6,7 @@ information. Data is from [MBTA](http://www.mbta.com/)
 
 ## Usage
 
+0. use node 5.7 above
 1. npm install
 2. npm start
 3. visit localhost:8080
