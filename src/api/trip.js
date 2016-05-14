@@ -23,10 +23,10 @@ const schedule = {
   mode: arrayOf(mode)
 };
 
-export function fetchSchedule(routeIds, datetime) {
+export function fetchSchedule(routeIds) {
   const routes = routeIds.join(',');
   return fetch('http://realtime.mbta.com/developer/api/v2/schedulebyroutes?api_key=' + API_KEY +
-    '&routes=' + routes + '&datetime=' + datetime + '&format=json')
+    '&routes=' + routes + '&format=json')
     .then(response => response.json())
     .then(json => normalize(json, schedule));
 }

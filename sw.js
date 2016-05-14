@@ -1,4 +1,3 @@
-// import fetch from 'isomorphic-fetch';
 const staticCacheName = 'static-v1';
 const apiCacheName = 'MBTA-v2';
 //

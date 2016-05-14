@@ -74,8 +74,7 @@ export function findSchedule() {
   return (dispatch, getState) => {
     dispatch(matchRoutes());
     const { matchRouteIds, date } = getState();
-    const datetime = Math.floor( (date || Date.now()) / 1000)
-    return fetchSchedule(matchRouteIds, datetime)
+    return fetchSchedule(matchRouteIds)
       .then(data => dispatch(receiveSchedule(data)))
       .then(() => dispatch(findTrips()));
   }

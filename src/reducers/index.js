@@ -64,7 +64,7 @@ export default function (state = {
         let trip = state.schedule.entities.trips[tripId];
         let schedule = {tripName: trip.trip_name, from: null, to: null};
         trip.stop.forEach((stop) => {
-          console.log(stop.stop_id);
+          // console.log(stop.stop_id);
           if (stop.stop_id == state.from) {
             schedule.from = stop;
           }
