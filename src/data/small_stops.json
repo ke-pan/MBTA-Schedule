@@ -1,0 +1,152 @@
+{ "stops" :
+  [
+    {
+      "stopId": "150",
+      "stopName": "Broadway Station - Red Line"
+    },
+    {
+      "stopId": "10011",
+      "stopName": "Albany St @ Randolph St"
+    },
+    {
+      "stopId": "10012",
+      "stopName": "Albany St @ Wareham St"
+    },
+    {
+      "stopId": "10013",
+      "stopName": "Albany St @ E Dedham St"
+    },
+    {
+      "stopId": "5090",
+      "stopName": "88 E Newton St"
+    },
+    {
+      "stopId": "10015",
+      "stopName": "Harrison Ave @ E Newton St"
+    },
+    {
+      "stopId": "1790",
+      "stopName": "Harrison Ave @ Worcester Sq"
+    },
+    {
+      "stopId": "1791",
+      "stopName": "Harrison Ave @ E Lenox St"
+    },
+    {
+      "stopId": "11792",
+      "stopName": "Harrison Ave @ Melnea Cass Blvd"
+    },
+    {
+      "stopId": "62",
+      "stopName": "Washington St @ Williams St"
+    },
+    {
+      "stopId": "63",
+      "stopName": "Washington St @ Ruggles St"
+    },
+    {
+      "stopId": "64",
+      "stopName": "Dudley Station"
+    },
+    {
+      "stopId": "1",
+      "stopName": "Washington St opp Ruggles St"
+    },
+    {
+      "stopId": "2",
+      "stopName": "Washington St @ Melnea Cass Blvd"
+    },
+    {
+      "stopId": "7",
+      "stopName": "Melnea Cass Blvd @ Washington St"
+    },
+    {
+      "stopId": "11",
+      "stopName": "Melnea Cass Blvd @ Kerr Way"
+    },
+    {
+      "stopId": "17863",
+      "stopName": "Ruggles Station - Lane 2"
+    },
+    {
+      "stopId": "1798",
+      "stopName": "Ruggles St @ Parker St"
+    },
+    {
+      "stopId": "1799",
+      "stopName": "Ruggles St @ Huntington Ave"
+    },
+    {
+      "stopId": "11799",
+      "stopName": "Ave Louis Pasteur @ The Fenway"
+    },
+    {
+      "stopId": "11802",
+      "stopName": "Ave Louis Pasteur @ Longwood Ave"
+    },
+    {
+      "stopId": "11803",
+      "stopName": "Longwood Ave @ Binney St"
+    },
+    {
+      "stopId": "1804",
+      "stopName": "Brookline Ave @ Longwood Ave"
+    },
+    {
+      "stopId": "1805",
+      "stopName": "Brookline Ave opp Short St"
+    },
+    {
+      "stopId": "1806",
+      "stopName": "Brookline Ave @ The Fenway"
+    },
+    {
+      "stopId": "1807",
+      "stopName": "Park Dr @ Fenway Station"
+    },
+    {
+      "stopId": "1808",
+      "stopName": "Park Dr @ Beacon St"
+    },
+    {
+      "stopId": "1809",
+      "stopName": "Park Dr @ Mountfort St"
+    },
+    {
+      "stopId": "11809",
+      "stopName": "Mountfort St @ Carlton St"
+    },
+    {
+      "stopId": "1810",
+      "stopName": "Commonwealth Ave @ University Rd"
+    },
+    {
+      "stopId": "1811",
+      "stopName": "Brookline St @ Granite St"
+    },
+    {
+      "stopId": "1812",
+      "stopName": "Brookline St @ Putnam Ave"
+    },
+    {
+      "stopId": "1813",
+      "stopName": "Brookline St @ Erie St"
+    },
+    {
+      "stopId": "1814",
+      "stopName": "Brookline St @ Tudor St"
+    },
+    {
+      "stopId": "1816",
+      "stopName": "Brookline St @ Green St"
+    },
+    {
+      "stopId": "2755",
+      "stopName": "Green St @ Pearl St"
+    },
+    {
+      "stopId": "1123",
+      "stopName": "Green St @ Magazine St"
+    }
+  ]
+}
