@@ -13,10 +13,8 @@ class List extends React.Component {
     }
   }
   render() {
-    const {from, to, date} = this.props;
     return (
       <div>
-        <h1>{ "From " + from + " To " + to }</h1>
         <ul>
           { this.listItem() }
         </ul>
@@ -26,15 +24,11 @@ class List extends React.Component {
 }
 
 List.propTypes = {
-  from: PropTypes.string.isRequired,
-  to: PropTypes.string.isRequired,
   trips: PropTypes.array.isRequired
 };
 
 function mapStateToProps(state) {
   return {
-    from: state.from,
-    to: state.to,
     trips: state.trips
   };
 }
