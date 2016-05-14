@@ -6,6 +6,11 @@ import { loadFrom, loadTo, findSchedule } from '../actions';
 
 const FormItem = Form.Item;
 
+const formStyle = {
+  margin: '0 auto',
+  width: '90%',
+}
+
 class RailwayForm extends React.Component {
   constructor(props) {
     super(props);
@@ -36,7 +41,7 @@ class RailwayForm extends React.Component {
 
   render() {
     return(
-      <Form inline>
+      <Form inline style={formStyle}>
         <FormItem label="From: ">
           <Select value={this.state.from} style={{ width: 120 }} onChange={this.handleFromChange}>
             <Option value="10000">10000</Option>
@@ -51,7 +56,7 @@ class RailwayForm extends React.Component {
             <Option value="10005">10005</Option>
           </Select>
         </FormItem>
-        <Button type="primary" htmlType="submit" onClick={this.handleSubmit}>FIND TRAINS</Button>
+        <Button type="primary" htmlType="submit" onClick={this.handleSubmit}>SEARCH</Button>
       </Form>
     );
   }

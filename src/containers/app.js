@@ -2,12 +2,22 @@ import React from 'react';
 import '../../node_modules/antd/lib/index.css';
 import RailwayForm from './RailwayForm';
 import List from './list';
+import Header from '../components/header';
+
+const style = {
+  width: '90%',
+  margin: '0 auto',
+}
 
 const App = () => {
   return (
     <div>
-      <RailwayForm />
-      <List />
+      <Header />
+      <div style={style}>
+        <RailwayForm />
+        <List />
+      </div>
+
     </div>
     
   );
