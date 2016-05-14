@@ -6,7 +6,8 @@ import {
   SUCCESS_TO, 
   MATCH_ROUTES, 
   SUCCESS_SCHEDULE, 
-  FIND_TRIPS 
+  FIND_TRIPS,
+  CLEAR_TRIPS
 } from '../constant';
 
 function selFrom(from) {
@@ -43,6 +44,12 @@ function matchRoutes() {
   }
 }
 
+function clearTrips() {
+  return {
+    type: CLEAR_TRIPS,
+  }
+}
+
 function receiveSchedule(schedule) {
   return {
     type: SUCCESS_SCHEDULE,
@@ -74,8 +81,13 @@ export function findSchedule() {
   return (dispatch, getState) => {
     dispatch(matchRoutes());
     const { matchRouteIds, date } = getState();
-    return fetchSchedule(matchRouteIds)
-      .then(data => dispatch(receiveSchedule(data)))
-      .then(() => dispatch(findTrips()));
+    if (matchRouteIds.length === 0) {
+      dispatch(clearTrips());
+    } else {
+      return fetchSchedule(matchRouteIds)
+        .then(data => dispatch(receiveSchedule(data)))
+        .then(() => dispatch(findTrips()));
+    }
+    
   }
 }

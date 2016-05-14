@@ -6,7 +6,8 @@ import {
   SEL_DATE,
   MATCH_ROUTES,
   SUCCESS_SCHEDULE,
-  FIND_TRIPS
+  FIND_TRIPS,
+  CLEAR_TRIPS
 } from '../constant';
 
 export default function (state = {
@@ -53,6 +54,10 @@ export default function (state = {
         isFetching: true,
         matchRouteIds
       });
+    case CLEAR_TRIPS:
+      return Object.assign({}, state, {
+        trips: []
+      })
     case SUCCESS_SCHEDULE:
       return Object.assign({}, state, {
         isFetching: false,
