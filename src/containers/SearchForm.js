@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Form, Select, Button, DatePicker } from 'antd';
 const Option = Select.Option;
 import { loadFrom, loadTo, findSchedule } from '../actions';
-import StopData from '../data/stops.json';
+import StopData from '../data/small_stops.json';
 
 const FormItem = Form.Item;
 
@@ -11,6 +11,10 @@ const formStyle = {
   margin: '0 auto',
   width: '90%',
 }
+
+const options = StopData.stops.map((stop, idx) => {
+  return <Option key={idx} value={stop.stopId}>{stop.stopName}</Option>;
+});
 
 class RailwayForm extends React.Component {
   constructor(props) {
@@ -41,9 +45,7 @@ class RailwayForm extends React.Component {
                   placeholder="From"
                   style={{ width: 240 }}
                   onChange={this.handleFromChange} >
-            {StopData.stops.map((stop, idx) => {
-              return <Option key={idx} value={stop.stopId}>{stop.stopName}</Option>
-            })}
+            {options}
           </Select>
         </FormItem>
         <FormItem >
@@ -51,9 +53,7 @@ class RailwayForm extends React.Component {
                   placeholder="To"
                   style={{ width: 240 }}
                   onChange={this.handleToChange} >
-            {StopData.stops.map((stop, idx) => {
-              return <Option key={idx} value={stop.stopId}>{stop.stopName}</Option>
-            })}
+            {options}
           </Select>
         </FormItem>
         <Button type="primary" htmlType="submit" onClick={this.handleSubmit}>SEARCH</Button>
