@@ -1,7 +1,7 @@
-# my-railway
+# MBTA Schedule
 
-A railway application that allows users to select departure and arrival station to check the
-information.
+An application that allows users to select departure and arrival station to check the
+information. Data is from [MBTA](http://www.mbta.com/)
 
 
 ## Usage
