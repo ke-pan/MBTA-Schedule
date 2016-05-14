@@ -2,10 +2,14 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import ListItem from '../components/listItem';
 
+const style = {
+  margin: "40px",
+}
+
 class List extends React.Component {
   listItem() {
     if(this.props.trips.length === 0) {
-      return 'No Trains'
+      return 'No transportation found'
     } else {
       return this.props.trips.map( (trip, i) => {
         return <ListItem key={i} data={trip}/>
@@ -14,10 +18,8 @@ class List extends React.Component {
   }
   render() {
     return (
-      <div>
-        <ul>
-          { this.listItem() }
-        </ul>
+      <div style={style}>
+        { this.listItem() }
       </div>
     );
   }
