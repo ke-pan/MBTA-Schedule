@@ -83,7 +83,7 @@ export default function (state = {
         }
       }
       return Object.assign({}, state, {
-        trips
+        trips: trips.sort(function(tripA, tripB) { return tripA.from.sch_dep_dt - tripB.from.sch_dep_dt })
       });
     default:
       return state;
