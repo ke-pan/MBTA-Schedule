@@ -12,7 +12,7 @@ const titleStyle = {
 
 function timeFormat(str) {
   const timestamp = parseInt(str);
-  return new Date(timestamp).toTimeString();
+  return new Date(timestamp).toLocaleTimeString();
 }
 
 export default class ListItem extends Component {
